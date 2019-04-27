@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "Markup.h"
+#include "UserManager.h"
 
 using namespace std;
 
@@ -14,22 +15,24 @@ using namespace std;
 
 int main()
 {
-     CMarkup xml;
-    xml.AddElem( "INCOMES" );
-    xml.IntoElem();
-    xml.AddElem( "ITEM" );
-    xml.IntoElem();
-    xml.AddElem( "incomeId", 1 );
-    xml.AddElem( "userId", 3 );
-    xml.AddElem( "date", 3 );
-    xml.AddElem( "item", "AUTO" );
-    xml.AddElem( "amount", 15.14 );
-    xml.OutOfElem();
+
+    UserManager userManager;
+
+    userManager.userRegistration();
+
+    userManager.userLogin();
+
+    userManager.getCurrentUserId();
+
+        userManager.changeCurrentUserPassword();
+
+
+    userManager.listAllUsers();
+    userManager.userLogin();
 
 
 
-    xml.Save("INCOMES.xml");
 
-    cout << "Hello world!" << endl;
+
     return 0;
 }
