@@ -6,7 +6,7 @@ void UserManager::userRegistration()
     User user = giveNewUserData();
 
     users.push_back(user);
-   // plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
+    fileWithUsers.addUserToFile(user);
 
     cout << endl << "Konto zalozono pomyslnie" << endl << endl;
     system("pause");
@@ -32,6 +32,18 @@ User UserManager::giveNewUserData()
     cout << "Podaj haslo: ";
     cin >> password;
     user.setPassword(password);
+
+    string name;
+    cout << "Podaj imie: ";
+    cin >> name;
+    user.setName(name);
+
+
+    string surname;
+    cout << "Podaj nazwisko: ";
+    cin >> surname;
+    user.setSurname(surname);
+
 
     return user;
 }
@@ -68,6 +80,8 @@ void UserManager::listAllUsers()
         cout<<users[i].getId() << endl;
         cout<<users[i].getLogin() << endl;
         cout<<users[i].getPassword() << endl;
+        cout<<users[i].getName() << endl;
+        cout<<users[i].getSurname() << endl;
     }
 
     system("pause");
@@ -126,7 +140,7 @@ void UserManager::changeCurrentUserPassword()
 
         }
     }
-   /// fileWithUsers.saveAllUsers(users);  ???
+    fileWithUsers.saveAllUsersInTheFile(users);
     system("pause");
 }
 

@@ -8,8 +8,7 @@
 #include <sstream>
 
 #include "User.h"
-
-//#include "FileWithUsers.h"
+#include "FileWithUsers.h"
 
 using namespace std;
 
@@ -17,7 +16,7 @@ class UserManager
 {
     int currentUserId;
     vector <User> users;
-   	//FileWithUsers fileWithUsers;
+   	FileWithUsers fileWithUsers;
 
 
     User giveNewUserData();
@@ -30,8 +29,13 @@ public:
    /* UserMenager(string(usersFileName)) : fileWithUsers(usersFileName)){
         currentUserId = 0;
         users = fileWithUsers.loadUsersFromTheFile();
+    };*/
+
+     UserManager(){
+       // currentUserId = 0;
+        users = fileWithUsers.loadUsersFromTheFile();
     };
-*/
+
     void userLogin();
     void userRegistration();
     void listAllUsers();

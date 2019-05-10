@@ -8,6 +8,7 @@
 
 #include "Markup.h"
 #include "UserManager.h"
+#include "FileWithUsers.h"
 
 using namespace std;
 
@@ -18,15 +19,16 @@ int main()
 
     UserManager userManager;
 
-    userManager.userRegistration();
+    userManager.listAllUsers();
 
-    userManager.userLogin();
+    //userManager.userRegistration();
+   // userManager.userRegistration();
 
-    userManager.getCurrentUserId();
+   userManager.userLogin();
 
-        userManager.changeCurrentUserPassword();
+   // userManager.getCurrentUserId();
 
-
+    userManager.changeCurrentUserPassword();
     userManager.listAllUsers();
     userManager.userLogin();
 
