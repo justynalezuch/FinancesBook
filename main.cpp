@@ -17,24 +17,5 @@ using namespace std;
 int main()
 {
 
-    UserManager userManager;
-
-    userManager.listAllUsers();
-
-    //userManager.userRegistration();
-   // userManager.userRegistration();
-
-   userManager.userLogin();
-
-   // userManager.getCurrentUserId();
-
-    userManager.changeCurrentUserPassword();
-    userManager.listAllUsers();
-    userManager.userLogin();
-
-
-
-
-
     return 0;
 }
