@@ -9,20 +9,20 @@ class Income
 {
     int id;
     int userId;
-    string date;
+    int date;
     string item;
     double amount;
 
 public:
     void setId(int newId);
     void setUserId(int newId);
-    void setDate(string newDate);
+    void setDate(int newDate);
     void setItem(string newItem);
     void setAmount(double newAmount);
 
     int getId();
     int getUserId();
-    string getDate();
+    int getDate();
     string getItem();
     double getAmount();
 };

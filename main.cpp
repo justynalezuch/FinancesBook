@@ -8,6 +8,7 @@
 
 #include "Markup.h"
 #include "UserManager.h"
+#include "IncomeManager.h"
 #include "FileWithUsers.h"
 
 using namespace std;
@@ -16,6 +17,13 @@ using namespace std;
 
 int main()
 {
+
+    IncomeManager incomemanager;
+
+    incomemanager.giveNewIncomeData();
+
+    //UserManager userManager("users.xml");
+    //userManager.listAllUsers();
 
     return 0;
 }

@@ -14,7 +14,8 @@ using namespace std;
 
 class UserManager
 {
-    int currentUserId;
+
+ int currentUserId = 0;
     vector <User> users;
    	FileWithUsers fileWithUsers;
 
@@ -26,13 +27,10 @@ class UserManager
 
 public:
 
-   /* UserMenager(string(usersFileName)) : fileWithUsers(usersFileName)){
-        currentUserId = 0;
-        users = fileWithUsers.loadUsersFromTheFile();
-    };*/
 
-     UserManager(){
-       // currentUserId = 0;
+     UserManager(string usersFileName) : fileWithUsers(usersFileName)
+     {
+        currentUserId = 0;
         users = fileWithUsers.loadUsersFromTheFile();
     };
 

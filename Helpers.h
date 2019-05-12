@@ -13,6 +13,8 @@ class Helpers
 public:
     static string convertIntToString(int number);
     static string loadLine();
+    static char loadSign();
+    static char loadYesNoSign();
     static int convertStringToInt(string number);
 };
 
