@@ -20,6 +20,7 @@ public:
     static char loadYesNoSign();
     static int convertStringToInt(string number);
     static float convertStringToFloat(string s);
+    static string convertFloatToString(float number);
 
 };
 

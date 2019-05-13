@@ -9,6 +9,7 @@
 #include "Income.h"
 #include "DatesMethods.h"
 #include "Helpers.h"
+#include "FileWithIncomes.h"
 
 
 using namespace std;
@@ -19,17 +20,18 @@ class IncomeManager
     const int ID_ZALOGOWANEGO_UZYTKOWNIKA = 1;
 
     vector <Income> incomes;
-    //	FileWithIncomes fileWithIncomes;
+    FileWithIncomes fileWithIncomes;
 
 
     int getNewIncomeId();
 
 public:
 
-    /* IncomeManager(string(incomesFileName)) : (incomesFileName)){
-         currentUserId = 0;
-         incomes = fileWithIncomes.loadIncomesOfLoggedUserFromTheFile();
-     };*/
+    IncomeManager(string incomesFileName) : fileWithIncomes(incomesFileName){
+         incomes = fileWithIncomes.loadIncomesOfLoggedUserFromFile(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+     };
+
+
 
     Income giveNewIncomeData();
     void addIncome();

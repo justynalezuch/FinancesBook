@@ -13,7 +13,7 @@ void IncomeManager::addIncome()
     Income income = giveNewIncomeData();
 
     incomes.push_back(income);
-    //fileWithIncomes.addIncomeToFile(income);
+    fileWithIncomes.addIncomeToFile(income);
 
     cout << endl << "Dodales przychod." << endl << endl;
     system("pause");
@@ -28,6 +28,7 @@ void IncomeManager::listAllIncomes()
         cout<<incomes[i].getDate() << endl;
         cout<<incomes[i].getItem() << endl;
         cout<<incomes[i].getAmount() << endl;
+        cout<<endl;
     }
 
     system("pause");
@@ -73,16 +74,12 @@ Income IncomeManager::giveNewIncomeData()
 
             cout<<"Niepoprawna data. Wpisz ponownie."<<endl<<endl;
             cin.ignore();
-
-
-
         }
     }
 
-    cin.ignore();
     string item;
     cout<<"Podaj czego dotyczy przychod: "<<endl;
-    item = Helpers::loadLine();
+   item = Helpers::loadLine();
     income.setItem(item);
 
     string amount;

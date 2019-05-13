@@ -8,6 +8,15 @@ string Helpers::convertIntToString(int number)
     return str;
 }
 
+string Helpers::convertFloatToString(float number)
+{
+
+   ostringstream ss;
+    ss << number;
+    string str = ss.str();
+    return str;
+}
+
 string Helpers::loadLine()
 {
     string entry = "";
