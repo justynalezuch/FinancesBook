@@ -4,6 +4,9 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm>
+#include <cstdlib>
+#include <string>
+
 
 using namespace std;
 
@@ -16,6 +19,8 @@ public:
     static char loadSign();
     static char loadYesNoSign();
     static int convertStringToInt(string number);
+    static float convertStringToFloat(string s);
+
 };
 
 #endif

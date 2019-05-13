@@ -63,3 +63,10 @@ int Helpers::convertStringToInt(string number)
 
     return numberInt;
 }
+
+
+float Helpers::convertStringToFloat(string s){
+
+    replace(s.begin(), s.end(), ',', '.');
+    return atof(s.c_str());
+}

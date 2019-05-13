@@ -5,6 +5,7 @@
 #include <sstream>
 #include <algorithm>
 #include <vector>
+#include <string>
 
 #include "Markup.h"
 #include "UserManager.h"
@@ -18,9 +19,14 @@ using namespace std;
 int main()
 {
 
+
     IncomeManager incomemanager;
 
-    incomemanager.giveNewIncomeData();
+    incomemanager.addIncome();
+    incomemanager.addIncome();
+    incomemanager.listAllIncomes();
+
+
 
     //UserManager userManager("users.xml");
     //userManager.listAllUsers();

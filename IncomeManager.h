@@ -15,23 +15,26 @@ using namespace std;
 
 class IncomeManager
 {
-    int currentUserId;
+
+    const int ID_ZALOGOWANEGO_UZYTKOWNIKA = 1;
 
     vector <Income> incomes;
-   //	FileWithIncomes fileWithIncomes;
+    //	FileWithIncomes fileWithIncomes;
 
 
     int getNewIncomeId();
 
 public:
 
-   /* IncomeManager(string(incomesFileName)) : (incomesFileName)){
-        currentUserId = 0;
-        incomes = fileWithIncomes.loadIncomesOfLoggedUserFromTheFile();
-    };*/
+    /* IncomeManager(string(incomesFileName)) : (incomesFileName)){
+         currentUserId = 0;
+         incomes = fileWithIncomes.loadIncomesOfLoggedUserFromTheFile();
+     };*/
 
- Income giveNewIncomeData();
+    Income giveNewIncomeData();
     void addIncome();
+    void listAllIncomes();
+
 
 
 

@@ -11,20 +11,20 @@ class Income
     int userId;
     int date;
     string item;
-    double amount;
+    float amount;
 
 public:
     void setId(int newId);
     void setUserId(int newId);
     void setDate(int newDate);
     void setItem(string newItem);
-    void setAmount(double newAmount);
+    void setAmount(float newAmount);
 
     int getId();
     int getUserId();
     int getDate();
     string getItem();
-    double getAmount();
+    float getAmount();
 };
 #endif
 
