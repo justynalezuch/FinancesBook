@@ -27,9 +27,8 @@ void FileWithIncomes::addIncomeToFile(Income income)
     xmlFile.AddElem("AMOUNT", Helpers::convertFloatToString(income.getAmount()));
 
     xmlFile.OutOfElem();
-
     xmlFile.Save(INCOMES_FILE_NAME);
-
+    lastIncomeId++;
 }
 
 vector <Income> FileWithIncomes::loadIncomesOfLoggedUserFromFile(int currentUserId)
@@ -47,11 +46,10 @@ vector <Income> FileWithIncomes::loadIncomesOfLoggedUserFromFile(int currentUser
     {
         xml.IntoElem();
 
-        xml.FindElem( "USERID" );
-        if(currentUserId != atoi( MCD_2PCSZ(xml.GetData()))) continue;
-
         xml.FindElem( "INCOMEID" );
         income.setId(atoi( MCD_2PCSZ(xml.GetData()) ));
+        lastIncomeId = income.getId();
+
 
         xml.FindElem( "USERID" );
         income.setUserId(atoi( MCD_2PCSZ(xml.GetData()) ));
@@ -65,9 +63,21 @@ vector <Income> FileWithIncomes::loadIncomesOfLoggedUserFromFile(int currentUser
         xml.FindElem( "AMOUNT");
         income.setAmount(Helpers::convertStringToFloat(xml.GetData()));
 
-        incomes.push_back(income);
+        if(income.getUserId() == currentUserId)
+        {
+
+            incomes.push_back(income);
+        }
+
         xml.OutOfElem();
     }
 
     return incomes;
 }
+
+int FileWithIncomes::getLastIncomeId()
+{
+
+    return lastIncomeId;
+}
+

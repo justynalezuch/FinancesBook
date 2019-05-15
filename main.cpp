@@ -1,7 +1,6 @@
 #include <iostream>
-#include "Markup.h"
-#include "UserManager.h"
-#include "IncomeManager.h"
+#include "FinancesBook.h"
+
 
 
 using namespace std;
@@ -11,12 +10,56 @@ using namespace std;
 int main()
 {
 
-    IncomeManager incomemanager("incomes.xml");
+char choice;
 
-    incomemanager.addIncome();
-    incomemanager.addIncome();
+    FinancesBook financesBook("users.xml", "incomes.xml");
 
-    incomemanager.listAllIncomes();
+    while (true)
+    {
+        if (financesBook.isUserLoggedIn() == false)
+        {
+            choice = financesBook.selectMainMenuOption();
+
+            switch (choice)
+            {
+            case '1':
+                financesBook.userRegistration();
+                break;
+            case '2':
+                financesBook.userLogin();
+                break;
+            case '3':
+                exit(0);
+                break;
+            default:
+                cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+                system("pause");
+                break;
+            }
+        }
+        else
+        {
+            choice = financesBook.selectFinancesMenuOption();
+
+            switch (choice)
+            {
+            case '1':
+                financesBook.addIncome();
+                break;
+            case '2':
+                financesBook.listAllIncomes();
+                break;
+            case '6':
+                financesBook.changeCurrentUserPassword();
+                break;
+            case '7':
+                financesBook.logoutUser();
+                break;
+            }
+        }
+
+    }
+
 
     return 0;
 }

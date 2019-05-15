@@ -47,7 +47,7 @@ Income IncomeManager::giveNewIncomeData()
 
     choice = Helpers::loadYesNoSign();
 
-    income.setId(getNewIncomeId());
+    income.setId(fileWithIncomes.getLastIncomeId() + 1);
     income.setUserId(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     if(choice == 't' )
