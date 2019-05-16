@@ -21,6 +21,7 @@ public:
     static int convertStringToInt(string number);
     static float convertStringToFloat(string s);
     static string convertFloatToString(float number);
+    static bool isNumber(string number);
 
 };
 

@@ -79,3 +79,16 @@ float Helpers::convertStringToFloat(string s){
     replace(s.begin(), s.end(), ',', '.');
     return atof(s.c_str());
 }
+
+bool Helpers::isNumber(string number) {
+
+ for (int i =0; i< number.length() ; i++) {
+
+   if( (int(number[i]) != 44 && int(number[i])  != 46) && (int(number[i]) < 48 || int(number[i]) > 57) )
+
+       return false;
+
+  }
+     return true;
+
+}

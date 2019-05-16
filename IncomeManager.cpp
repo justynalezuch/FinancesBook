@@ -79,13 +79,26 @@ Income IncomeManager::giveNewIncomeData()
 
     string item;
     cout<<"Podaj czego dotyczy przychod: "<<endl;
-   item = Helpers::loadLine();
+    item = Helpers::loadLine();
     income.setItem(item);
 
     string amount;
     cout<<"Podaj kwote: "<<endl;
-    cin>>amount;
-    income.setAmount(Helpers::convertStringToFloat(amount));
+
+
+    while (true)
+    {
+        cin>>amount;
+
+        if (Helpers::isNumber(amount))
+        {
+
+            income.setAmount(Helpers::convertStringToFloat(amount));
+
+            break;
+        }
+        cout << "Wprowadz poprawna kwote: " << endl;
+    }
 
 
     return income;
