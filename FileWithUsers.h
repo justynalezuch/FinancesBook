@@ -16,9 +16,12 @@ using namespace std;
 class FileWithUsers
 {
 
-    const string USERS_FILE_NAME = "users.xml";
+    const string USERS_FILE_NAME;
+
 public:
-    //FileWithUsers(string usersFileName) : USERS_FILE_NAME(usersFileName){};
+
+    FileWithUsers(string usersFileName) : USERS_FILE_NAME(usersFileName){};
+
     void addUserToFile(User user);
     vector <User> loadUsersFromTheFile();
     void saveAllUsersInTheFile(vector <User> &users);

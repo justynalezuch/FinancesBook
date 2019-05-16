@@ -1,14 +1,7 @@
 #include <iostream>
-#include <ctime>
-#include <cstdio>
-#include <cstdlib>
-#include <sstream>
-#include <algorithm>
-#include <vector>
+#include "FinancesBook.h"
 
-#include "Markup.h"
-#include "UserManager.h"
-#include "FileWithUsers.h"
+
 
 using namespace std;
 
@@ -17,23 +10,55 @@ using namespace std;
 int main()
 {
 
-    UserManager userManager;
+char choice;
 
-    userManager.listAllUsers();
+    FinancesBook financesBook("users.xml", "incomes.xml");
 
-    //userManager.userRegistration();
-   // userManager.userRegistration();
+    while (true)
+    {
+        if (financesBook.isUserLoggedIn() == false)
+        {
+            choice = financesBook.selectMainMenuOption();
 
-   userManager.userLogin();
+            switch (choice)
+            {
+            case '1':
+                financesBook.userRegistration();
+                break;
+            case '2':
+                financesBook.userLogin();
+                break;
+            case '3':
+                exit(0);
+                break;
+            default:
+                cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+                system("pause");
+                break;
+            }
+        }
+        else
+        {
+            choice = financesBook.selectFinancesMenuOption();
 
-   // userManager.getCurrentUserId();
+            switch (choice)
+            {
+            case '1':
+                financesBook.addIncome();
+                break;
+            case '2':
+                financesBook.listAllIncomes();
+                break;
+            case '6':
+                financesBook.changeCurrentUserPassword();
+                break;
+            case '7':
+                financesBook.logoutUser();
+                break;
+            }
+        }
 
-    userManager.changeCurrentUserPassword();
-    userManager.listAllUsers();
-    userManager.userLogin();
-
-
-
+    }
 
 
     return 0;

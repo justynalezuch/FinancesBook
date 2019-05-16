@@ -14,9 +14,10 @@ using namespace std;
 
 class UserManager
 {
+
     int currentUserId;
     vector <User> users;
-   	FileWithUsers fileWithUsers;
+    FileWithUsers fileWithUsers;
 
 
     User giveNewUserData();
@@ -26,13 +27,10 @@ class UserManager
 
 public:
 
-   /* UserMenager(string(usersFileName)) : fileWithUsers(usersFileName)){
-        currentUserId = 0;
-        users = fileWithUsers.loadUsersFromTheFile();
-    };*/
 
-     UserManager(){
-       // currentUserId = 0;
+    UserManager(string usersFileName) : fileWithUsers(usersFileName)
+    {
+        currentUserId = 0;
         users = fileWithUsers.loadUsersFromTheFile();
     };
 
