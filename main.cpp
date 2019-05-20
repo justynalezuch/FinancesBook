@@ -1,12 +1,17 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 #include "FinancesBook.h"
+
+
+#include "IncomeManager.h"
 
 
 
 using namespace std;
 
 
-
+/*
 int main()
 {
 
@@ -59,6 +64,20 @@ char choice;
         }
 
     }
+
+
+    return 0;
+}
+*/
+
+int main()
+{
+
+    IncomeManager incomeManager("incomes.xml", 1);
+
+incomeManager.addIncome();
+   incomeManager.listAllIncomes();
+   incomeManager.getCurrentMonthBalance();
 
 
     return 0;

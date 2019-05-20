@@ -65,6 +65,7 @@ Income IncomeManager::giveNewIncomeData()
         {
             cout<<"Wprowadz date w formacie yyyy-mm-dd: "<<endl;
             cin>>date;
+            cin.ignore();
 
             if(DatesMethods::isValidDate(date))
             {
@@ -104,4 +105,41 @@ Income IncomeManager::giveNewIncomeData()
     return income;
 
 }
+
+
+void IncomeManager::getCurrentMonthBalance()
+{
+
+    int firstDate = DatesMethods::convertStringDateToIntDate(DatesMethods::getFirstDayCurrentMonth());
+    int secondDate = DatesMethods::convertStringDateToIntDate(DatesMethods::getLastDayCurrentMonth());
+
+    sort(incomes.begin(), incomes.end(), sortByDate());
+    float sum = 0;
+
+
+    cout<<"-------- BILANS PRZYCHODOW Z OSTATNIEGO MIESIACA --------"<<endl;
+
+    for( vector < Income >::iterator itr = incomes.begin(); itr != incomes.end(); itr++ ) {
+
+            if(itr->getDate() >= firstDate && itr->getDate() <= secondDate) {
+
+                cout<<itr->getId() << endl;
+                cout<<itr->getUserId() << endl;
+                cout<<itr->getDate() << endl;
+                cout<<itr->getItem() << endl;
+                cout<<itr->getAmount() << endl;
+
+               // sum += atof(itr->getAmount);
+
+            }
+    }
+
+
+    cout<<"-------- SUMA WYDATKOW --------"<<endl;
+    cout<<sum<<endl;
+
+
+
+}
+
 

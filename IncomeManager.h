@@ -5,6 +5,7 @@
 #include <vector>
 #include <fstream>
 #include <cstdlib>
+#include <algorithm>
 
 #include "Income.h"
 #include "DatesMethods.h"
@@ -23,6 +24,7 @@ class IncomeManager
     FileWithIncomes fileWithIncomes;
 
 
+
     int getNewIncomeId();
 
 public:
@@ -36,9 +38,15 @@ public:
     Income giveNewIncomeData();
     void addIncome();
     void listAllIncomes();
+    void getCurrentMonthBalance();
 
-
-
+    struct sortByDate
+    {
+        inline bool operator() ( Income& income1,  Income& income2)
+        {
+            return (income1.getDate() < income2.getDate());
+        }
+    };
 
 };
 
