@@ -9,7 +9,7 @@ class Income
 {
     int id;
     int userId;
-    int date;
+     int date;
     string item;
     float amount;
 
@@ -25,6 +25,8 @@ public:
     int getDate();
     string getItem();
     float getAmount();
+
+
 };
 #endif
 

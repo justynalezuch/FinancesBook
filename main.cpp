@@ -1,5 +1,10 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 #include "FinancesBook.h"
+
+
+#include "IncomeManager.h"
 
 
 
@@ -57,6 +62,7 @@ char choice;
                 break;
             }
         }
+
 
     }
 

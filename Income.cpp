@@ -53,3 +53,5 @@ float Income::getAmount()
     return amount;
 }
 
+
+

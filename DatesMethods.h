@@ -18,7 +18,6 @@ using namespace std;
 
 class DatesMethods
 {
-    const string MIN_VALID_DATE = "2000-01-01";
 
     static int getDay(string date);
     static int getMonth(string date);
@@ -32,16 +31,20 @@ class DatesMethods
     static string getLastDateOfMonth(string currentDate);
     static int getLastDayOfMonth(int month, int year);
 
-   // const string FRIST_DAY_CURRENT_MONTH = getCurrentDate();
-   // const string LAST_DAY_CURRENT_MONTH = getLastDayOfMonth(getCurrentDate());
+    static string getPreviousMonth(string date);
+    static string getFirstDay(string date);
+    static string getLastDay(string date);
 
 public:
 
-    static string getCurrentDate();
     static int convertStringDateToIntDate(string stringDate);
     static string convertIntDateToStringDate(int date);
+    static string getCurrentDate();
     static bool isValidDate(string date);
 
+
+    static string getFirstDayCurrentMonth();
+    static string getLastDayCurrentMonth();
 
 
 
