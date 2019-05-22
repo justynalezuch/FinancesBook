@@ -52,7 +52,6 @@ string DatesMethods::getStrMonth(string date)
     return (date.substr(5,2));
 }
 
-
 int DatesMethods::convertStringDateToIntDate(string date)
 {
 
@@ -152,6 +151,52 @@ bool DatesMethods::isValidDate(string date)
 
 
 
+string DatesMethods::getPreviousMonth(string date) {
+
+int year = getYear(date);
+int month = getMonth(date);
+
+if(month > 1 )  {
+
+month -= 1;
+
+}
+else  {
+
+month = 12;
+year -= 1;
+}
+
+string strMonth = ( month < 10 ) ? "0"+Helpers::convertIntToString(month) : Helpers::convertIntToString(month);
+
+
+return Helpers::convertIntToString(year)+"-"+strMonth;
+
+}
+
+string DatesMethods::getFirstDay(string date) {
+
+    return date.substr(0,7)+"-01";
+
+}
+
+string DatesMethods::getLastDay(string date) {
+
+    string lastDay = Helpers::convertIntToString(getLastDayOfMonth(getMonth(date), getYear(date)));
+
+   return date.substr(0,7)+"-"+lastDay;
+
+}
+string DatesMethods::getFirstDayCurrentMonth()
+{
+
+    return getFirstDay(getCurrentDate());
+}
+string DatesMethods::getLastDayCurrentMonth()
+{
+
+    return getLastDay(getCurrentDate());
+}
 
 
 
