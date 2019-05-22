@@ -17,7 +17,7 @@ int main()
 
 char choice;
 
-    FinancesBook financesBook("users.xml", "incomes.xml");
+    FinancesBook financesBook("users.xml", "incomes.xml", "expenses.xml");
 
     while (true)
     {
@@ -52,7 +52,7 @@ char choice;
                 financesBook.addIncome();
                 break;
             case '2':
-                financesBook.listAllIncomes();
+                financesBook.addExpense();
                 break;
             case '6':
                 financesBook.changeCurrentUserPassword();

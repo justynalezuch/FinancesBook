@@ -18,7 +18,7 @@ using namespace std;
 class IncomeManager
 {
 
-    const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
+    const int CURRENT_USER_ID;
 
     vector <Income> incomes;
     FileWithIncomes fileWithIncomes;
@@ -29,8 +29,8 @@ class IncomeManager
 
 public:
 
-    IncomeManager(string incomesFileName, int currentUserId) : fileWithIncomes(incomesFileName), ID_ZALOGOWANEGO_UZYTKOWNIKA(currentUserId){
-         incomes = fileWithIncomes.loadIncomesOfLoggedUserFromFile(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+    IncomeManager(string incomesFileName, int currentUserId) : fileWithIncomes(incomesFileName), CURRENT_USER_ID(currentUserId){
+         incomes = fileWithIncomes.loadIncomesOfLoggedUserFromFile(CURRENT_USER_ID);
      };
 
 
