@@ -12,6 +12,7 @@ void FinancesBook::userLogin()
     if(userManager.isUserLoggedIn())
     {
         incomeManager = new IncomeManager(INCOMES_FILE_NAME, userManager.getCurrentUserId());
+        expenseManager = new ExpenseManager(EXPENSES_FILE_NAME, userManager.getCurrentUserId());
     }
 }
 
@@ -37,6 +38,20 @@ void FinancesBook::addIncome()
     else
     {
         cout<<"Aby dodac przychod, nalezy najpierw sie zalogowac"<<endl;
+        system("pause");
+    }
+
+}
+
+void FinancesBook::addExpense()
+{
+    if(userManager.isUserLoggedIn())
+    {
+        expenseManager->addExpense();
+    }
+    else
+    {
+        cout<<"Aby dodac wydatek, nalezy najpierw sie zalogowac"<<endl;
         system("pause");
     }
 
@@ -89,8 +104,7 @@ char FinancesBook::selectFinancesMenuOption()
     cout << " >>> ZARZADZANIE FINANSAMI <<<" << endl;
     cout << "---------------------------" << endl;
     cout << "1. Dodaj przychod" << endl;
-    cout << "2. Wyswietl wszystkie przychody (DO ZMIANY)" << endl;
-    //cout << "2. Dodaj wydatek" << endl;
+    cout << "2. Dodaj wydatek" << endl;
     cout << "3. Bilans z biezacego miesiaca" << endl;
     cout << "4. Bilans z poprzedniego miesiaca" << endl;
     cout << "5. Bilans wybranego okresu" << endl;

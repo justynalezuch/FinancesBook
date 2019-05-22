@@ -1,33 +1,34 @@
-#include "IncomeManager.h"
 
-int IncomeManager::getNewIncomeId()
+#include "ExpenseManager.h"
+
+int ExpenseManager::getNewExpenseId()
 {
-    if (incomes.empty() == true)
+    if (expenses.empty() == true)
         return 1;
     else
-        return incomes.back().getId() + 1;
+        return expenses.back().getId() + 1;
 }
 
-void IncomeManager::addIncome()
+void ExpenseManager::addExpense()
 {
-    Income income = giveNewIncomeData();
+    Expense expense = giveNewExpenseData();
 
-    incomes.push_back(income);
-    fileWithIncomes.addIncomeToFile(income);
+    expenses.push_back(expense);
+    fileWithExpenses.addExpenseToFile(expense);
 
-    cout << endl << "Dodales przychod." << endl << endl;
+    cout << endl << "Dodales wydatek." << endl << endl;
     system("pause");
 }
 
-void IncomeManager::listAllIncomes()
+void ExpenseManager::listAllExpenses()
 {
-    for(int i = 0; i <incomes.size(); i++)
+    for(int i = 0; i <expenses.size(); i++)
     {
-        cout<<incomes[i].getId() << endl;
-        cout<<incomes[i].getUserId() << endl;
-        cout<<incomes[i].getDate() << endl;
-        cout<<incomes[i].getItem() << endl;
-        cout<<incomes[i].getAmount() << endl;
+        cout<<expenses[i].getId() << endl;
+        cout<<expenses[i].getUserId() << endl;
+        cout<<expenses[i].getDate() << endl;
+        cout<<expenses[i].getItem() << endl;
+        cout<<expenses[i].getAmount() << endl;
         cout<<endl;
     }
 
@@ -35,41 +36,40 @@ void IncomeManager::listAllIncomes()
 }
 
 
-Income IncomeManager::giveNewIncomeData()
+Expense ExpenseManager::giveNewExpenseData()
 {
 
-    Income income;
+    Expense expense;
     char choice;
 
-
-    cout<<"--- DODAJ PRZYCHOD ---"<<endl;
-    cout<<"Czy przychod dotyczy dnia dzisiejszego? Wybierz t (tak), n (nie):"<<endl;
+    cout<<"--- DODAJ WYDATEK ---"<<endl;
+    cout<<"Czy wydatek dotyczy dnia dzisiejszego? Wybierz t (tak), n (nie):"<<endl;
 
     choice = Helpers::loadYesNoSign();
 
-    income.setId(fileWithIncomes.getLastIncomeId() + 1);
-    income.setUserId(CURRENT_USER_ID);
+    expense.setId(fileWithExpenses.getLastExpenseId() + 1);
+    expense.setUserId(CURRENT_USER_ID);
 
     if(choice == 't' )
     {
         int date = DatesMethods::convertStringDateToIntDate(DatesMethods::getCurrentDate());
-        income.setDate(date);
+        expense.setDate(date);
 
     }
     else if (choice == 'n')
     {
         string date;
+
         cout<<"Wprowadz date w formacie yyyy-mm-dd: "<<endl;
 
         while(true)
         {
-
             cin>>date;
 
             if(DatesMethods::isValidDate(date))
             {
                 cin.ignore();
-                income.setDate(DatesMethods::convertStringDateToIntDate(date));
+                expense.setDate(DatesMethods::convertStringDateToIntDate(date));
                 break;
             }
 
@@ -79,9 +79,9 @@ Income IncomeManager::giveNewIncomeData()
     }
 
     string item;
-    cout<<"Podaj czego dotyczy przychod: "<<endl;
+    cout<<"Podaj czego dotyczy wydatek: "<<endl;
     item = Helpers::loadLine();
-    income.setItem(item);
+    expense.setItem(item);
 
     string amount;
     cout<<"Podaj kwote: "<<endl;
@@ -94,7 +94,7 @@ Income IncomeManager::giveNewIncomeData()
         if (Helpers::isNumber(amount))
         {
 
-            income.setAmount(Helpers::convertStringToFloat(amount));
+            expense.setAmount(Helpers::convertStringToFloat(amount));
 
             break;
         }
@@ -102,22 +102,22 @@ Income IncomeManager::giveNewIncomeData()
     }
 
 
-    return income;
+    return expense;
 
 }
 
 
-int IncomeManager::getBalanceFromPeriod(string firstDate, string lastDate)
+int ExpenseManager::getBalanceFromPeriod(string firstDate, string lastDate)
 {
 
     int firstDateNumeric = DatesMethods::convertStringDateToIntDate(firstDate);
     int secondDateNumeric = DatesMethods::convertStringDateToIntDate(lastDate);
 
-    sort(incomes.begin(), incomes.end(), sortByDate());
+    sort(expenses.begin(), expenses.end(), sortByDate());
     float sum = 0;
 
 
-    for( vector < Income >::iterator itr = incomes.begin(); itr != incomes.end(); itr++ )
+    for( vector < Expense >::iterator itr = expenses.begin(); itr != expenses.end(); itr++ )
     {
 
         if(itr->getDate() >= firstDateNumeric && itr->getDate() <= secondDateNumeric)
@@ -134,13 +134,10 @@ int IncomeManager::getBalanceFromPeriod(string firstDate, string lastDate)
         }
     }
 
-    cout<<"-------- SUMA PRZYCHODOW --------"<<endl<<endl;
+    cout<<"-------- SUMA WYDATKOW --------"<<endl<<endl;
     cout<<sum<<endl;
 
 
     return sum;
 }
-
-
-
 

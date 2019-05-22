@@ -198,6 +198,28 @@ string DatesMethods::getLastDayCurrentMonth()
     return getLastDay(getCurrentDate());
 }
 
+bool DatesMethods::compareDates(string firstDate, string secondDate)
+{
+
+    if(getYear(firstDate) > getYear(secondDate))
+        return false;
+
+    else if(getYear(firstDate) == getYear(secondDate))
+    {
+        if(getMonth(firstDate) > getMonth(secondDate))
+            return false;
+
+        else if(getMonth(firstDate) == getMonth(secondDate))
+        {
+            if(getDay(firstDate) > getDay(secondDate))
+                return false;
+        }
+    }
+
+    return true;
+}
+
+
 
 
 
