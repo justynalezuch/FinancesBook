@@ -4,6 +4,7 @@
 #include "IncomeManager.h"
 #include "ExpenseManager.h"
 #include "Helpers.h"
+#include "DatesMethods.h"
 
 using namespace std;
 
@@ -12,6 +13,7 @@ class FinancesBook
     UserManager userManager;
     IncomeManager *incomeManager;
     ExpenseManager *expenseManager;
+
     const string INCOMES_FILE_NAME;
     const string EXPENSES_FILE_NAME;
 
@@ -39,6 +41,9 @@ public:
     bool isUserLoggedIn();
     void addIncome();
     void addExpense();
+    void getCurrentMonthBalance();
+    void getPreviousMonthBalance();
+
     void listAllIncomes();
 
     char selectMainMenuOption();

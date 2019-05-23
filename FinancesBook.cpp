@@ -25,8 +25,8 @@ void FinancesBook::changeCurrentUserPassword()
 void FinancesBook::logoutUser()
 {
     userManager.logoutUser();
-   delete incomeManager;
-   incomeManager = NULL;
+    delete incomeManager;
+    incomeManager = NULL;
 }
 
 void FinancesBook::addIncome()
@@ -60,7 +60,7 @@ void FinancesBook::addExpense()
 
 void FinancesBook::listAllIncomes()
 {
-     if(userManager.isUserLoggedIn())
+    if(userManager.isUserLoggedIn())
     {
         incomeManager->listAllIncomes();
     }
@@ -71,7 +71,6 @@ void FinancesBook::listAllIncomes()
     }
 
 }
-
 
 
 bool FinancesBook::isUserLoggedIn()
@@ -117,6 +116,51 @@ char FinancesBook::selectFinancesMenuOption()
     return choice;
 }
 
+void FinancesBook::getCurrentMonthBalance()
+{
+    if(userManager.isUserLoggedIn())
+    {
+        int lastDate = DatesMethods::convertStringDateToIntDate(DatesMethods::getLastDayCurrentMonth());
+        int firstDate = DatesMethods::convertStringDateToIntDate(DatesMethods::getFirstDayCurrentMonth());
+
+        cout<<"-------- BILANS PRZYCHODOW Z OBECNEGO MIESIACA --------"<<endl<<endl;
+
+        float totalIncomes = incomeManager->getBalanceFromPeriod(firstDate, lastDate);
+
+        cout<<"-------- BILANS WYDATKOW Z OBECNEGO MIESIACA --------"<<endl<<endl;
+
+        float totalExpenses = expenseManager->getBalanceFromPeriod(firstDate, lastDate);
+
+
+        cout<<"PODSUMOWANIE WYDATKOW I PRZYCHODOW DLA PODANEGO OKRESU: "<<endl<<endl;
+
+        cout<<totalIncomes - totalExpenses<<endl<<endl;
+        system("pause");
+    }
+}
+
+/*void FinancesBook::getPreviousMonthBalance()
+{
+    if(userManager.isUserLoggedIn())
+    {
+        int lastDate = DatesMethods::convertStringDateToIntDate(DatesMethods::getFirstDayPreviousMonth());
+        int firstDate = DatesMethods::convertStringDateToIntDate(DatesMethods::getFirstDayPreviousMonth());
+
+        cout<<"-------- BILANS PRZYCHODOW Z OSTATNIEGO MIESIACA --------"<<endl<<endl;
+
+        float totalIncomes = incomeManager->getBalanceFromPeriod(firstDate, lastDate);
+
+        cout<<"-------- BILANS WYDATKOW Z OSTATNIEGO MIESIACA --------"<<endl<<endl;
+
+        float totalExpenses = expenseManager->getBalanceFromPeriod(firstDate, lastDate);
+
+
+        cout<<"PODSUMOWANIE WYDATKOW I PRZYCHODOW DLA PODANEGO OKRESU: "<<endl<<endl;
+
+        cout<<totalIncomes - totalExpenses<<endl<<endl;
+        system("pause");
+    }
+}*/
 
 
 

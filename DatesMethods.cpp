@@ -151,40 +151,45 @@ bool DatesMethods::isValidDate(string date)
 
 
 
-string DatesMethods::getPreviousMonth(string date) {
+string DatesMethods::getPreviousMonth(string date)
+{
 
-int year = getYear(date);
-int month = getMonth(date);
+    int year = getYear(date);
+    int month = getMonth(date);
 
-if(month > 1 )  {
+    if(month > 1 )
+    {
 
-month -= 1;
+        month -= 1;
+
+    }
+    else
+    {
+
+        month = 12;
+        year -= 1;
+    }
+
+    string strMonth = ( month < 10 ) ? "0"+Helpers::convertIntToString(month) : Helpers::convertIntToString(month);
+
+
+    return Helpers::convertIntToString(year)+"-"+strMonth;
 
 }
-else  {
 
-month = 12;
-year -= 1;
-}
-
-string strMonth = ( month < 10 ) ? "0"+Helpers::convertIntToString(month) : Helpers::convertIntToString(month);
-
-
-return Helpers::convertIntToString(year)+"-"+strMonth;
-
-}
-
-string DatesMethods::getFirstDay(string date) {
+string DatesMethods::getFirstDay(string date)
+{
 
     return date.substr(0,7)+"-01";
 
 }
 
-string DatesMethods::getLastDay(string date) {
+string DatesMethods::getLastDay(string date)
+{
 
     string lastDay = Helpers::convertIntToString(getLastDayOfMonth(getMonth(date), getYear(date)));
 
-   return date.substr(0,7)+"-"+lastDay;
+    return date.substr(0,7)+"-"+lastDay;
 
 }
 string DatesMethods::getFirstDayCurrentMonth()
@@ -197,6 +202,7 @@ string DatesMethods::getLastDayCurrentMonth()
 
     return getLastDay(getCurrentDate());
 }
+
 
 bool DatesMethods::compareDates(string firstDate, string secondDate)
 {
@@ -218,6 +224,25 @@ bool DatesMethods::compareDates(string firstDate, string secondDate)
 
     return true;
 }
+
+string DatesMethods::getDate(string date)
+{
+
+    while(true)
+    {
+        cin>>date;
+
+        if(DatesMethods::isValidDate(date))
+        {
+            break;
+        }
+
+        cout<<"Niepoprawna data. Wpisz ponownie."<<endl<<endl;
+    }
+
+    return date;
+}
+
 
 
 

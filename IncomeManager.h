@@ -38,7 +38,7 @@ public:
     Income giveNewIncomeData();
     void addIncome();
     void listAllIncomes();
-    int getBalanceFromPeriod(string firstDate, string lastDate);
+    float getBalanceFromPeriod(int firstDate, int lastDate);
 
     struct sortByDate
     {
