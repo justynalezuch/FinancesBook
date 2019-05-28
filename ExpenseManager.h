@@ -40,7 +40,7 @@ public:
     Expense giveNewExpenseData();
     void addExpense();
     void listAllExpenses();
-    int getBalanceFromPeriod(string firstDate, string lastDate);
+    float getBalanceFromPeriod(int firstDate, int lastDate);
 
 
     struct sortByDate

@@ -107,35 +107,39 @@ Expense ExpenseManager::giveNewExpenseData()
 }
 
 
-int ExpenseManager::getBalanceFromPeriod(string firstDate, string lastDate)
+float ExpenseManager::getBalanceFromPeriod(int firstDate, int lastDate)
 {
 
-    int firstDateNumeric = DatesMethods::convertStringDateToIntDate(firstDate);
-    int secondDateNumeric = DatesMethods::convertStringDateToIntDate(lastDate);
-
-    sort(expenses.begin(), expenses.end(), sortByDate());
     float sum = 0;
 
-
-    for( vector < Expense >::iterator itr = expenses.begin(); itr != expenses.end(); itr++ )
+    if (expenses.empty() == true)
     {
+        cout<<"Brak wydatkow dla danego okresu"<<endl<<endl<<endl;
+    }
+    else
+    {
+        sort(expenses.begin(), expenses.end(), sortByDate());
 
-        if(itr->getDate() >= firstDateNumeric && itr->getDate() <= secondDateNumeric)
+
+        for( vector < Expense >::iterator itr = expenses.begin(); itr != expenses.end(); itr++ )
         {
 
-            cout<<itr->getId() << endl;
-            cout<<itr->getUserId() << endl;
-            cout<<itr->getDate() << endl;
-            cout<<itr->getItem() << endl;
-            cout<<itr->getAmount() << endl;
-            cout<<endl;
+            if(itr->getDate() >= firstDate && itr->getDate() <= lastDate)
+            {
 
-            sum += itr->getAmount();
+                cout<<"ID:          "<<itr->getId() << endl;
+                cout<<"DATA:        "<<DatesMethods::convertIntDateToStringDate(itr->getDate()) << endl;
+                cout<<"PRZEDMIOT:   "<<itr->getItem() << endl;
+                cout<<"KWOTA:       "<<itr->getAmount() << endl;
+                cout<<endl;
+
+                sum += itr->getAmount();
+            }
         }
-    }
 
-    cout<<"-------- SUMA WYDATKOW --------"<<endl<<endl;
-    cout<<sum<<endl;
+        cout<<"-------- SUMA WYDATKOW --------"<<endl<<endl;
+        cout<<sum<<endl<<endl;
+    }
 
 
     return sum;

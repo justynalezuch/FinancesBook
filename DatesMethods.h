@@ -46,8 +46,12 @@ public:
     static string getFirstDayCurrentMonth();
     static string getLastDayCurrentMonth();
 
+    static string getFirstDayPreviousMonth();
+    static string getLastDayPrevioustMonth();
+
     static bool compareDates(string firstDate, string secondDate);
 
+    static string getDate();
 
 
 

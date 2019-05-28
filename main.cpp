@@ -1,12 +1,6 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
+
 #include "FinancesBook.h"
-
-
-#include "IncomeManager.h"
-
-
 
 using namespace std;
 
@@ -53,6 +47,15 @@ char choice;
                 break;
             case '2':
                 financesBook.addExpense();
+                break;
+            case '3':
+                financesBook.getCurrentMonthBalance();
+                break;
+            case '4':
+                financesBook.getPreviousMonthBalance();
+                break;
+            case '5':
+                financesBook.getCustomPeriodBalance();
                 break;
             case '6':
                 financesBook.changeCurrentUserPassword();
