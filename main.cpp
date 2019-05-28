@@ -51,6 +51,12 @@ char choice;
             case '3':
                 financesBook.getCurrentMonthBalance();
                 break;
+            case '4':
+                financesBook.getPreviousMonthBalance();
+                break;
+            case '5':
+                financesBook.getCustomPeriodBalance();
+                break;
             case '6':
                 financesBook.changeCurrentUserPassword();
                 break;

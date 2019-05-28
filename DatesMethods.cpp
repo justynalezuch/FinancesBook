@@ -203,6 +203,19 @@ string DatesMethods::getLastDayCurrentMonth()
     return getLastDay(getCurrentDate());
 }
 
+string DatesMethods::getFirstDayPreviousMonth()
+{
+
+    return getFirstDay(getPreviousMonth(getCurrentDate()));
+}
+string DatesMethods::getLastDayPrevioustMonth()
+{
+
+    return getLastDay(getPreviousMonth(getCurrentDate()));
+}
+
+
+
 
 bool DatesMethods::compareDates(string firstDate, string secondDate)
 {
@@ -225,9 +238,9 @@ bool DatesMethods::compareDates(string firstDate, string secondDate)
     return true;
 }
 
-string DatesMethods::getDate(string date)
+string DatesMethods::getDate()
 {
-
+    string date;
     while(true)
     {
         cin>>date;
@@ -237,19 +250,9 @@ string DatesMethods::getDate(string date)
             break;
         }
 
-        cout<<"Niepoprawna data. Wpisz ponownie."<<endl<<endl;
+        cout<<"Niepoprawna data. Wpisz ponownie: "<<endl;
     }
+        return date;
 
-    return date;
+
 }
-
-
-
-
-
-
-
-
-
-
-

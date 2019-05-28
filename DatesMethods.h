@@ -51,7 +51,7 @@ public:
 
     static bool compareDates(string firstDate, string secondDate);
 
-    static string getDate(string date);
+    static string getDate();
 
 
 

@@ -39,12 +39,12 @@ public:
     void changeCurrentUserPassword();
     void logoutUser();
     bool isUserLoggedIn();
+
     void addIncome();
     void addExpense();
     void getCurrentMonthBalance();
     void getPreviousMonthBalance();
-
-    void listAllIncomes();
+    void getCustomPeriodBalance();
 
     char selectMainMenuOption();
     char selectFinancesMenuOption();
