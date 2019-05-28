@@ -72,3 +72,14 @@ char choice;
 
     return 0;
 }
+
+
+/*int main()
+{
+    FinancesBook financesBook("users.xml", "incomes.xml", "expenses.xml");
+
+  financesBook.getCustomPeriodBalance();
+
+    return 0;
+}
+*/

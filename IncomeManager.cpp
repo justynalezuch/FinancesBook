@@ -10,6 +10,7 @@ int IncomeManager::getNewIncomeId()
 
 void IncomeManager::addIncome()
 {
+
     Income income = giveNewIncomeData();
 
     incomes.push_back(income);
@@ -41,7 +42,7 @@ Income IncomeManager::giveNewIncomeData()
     Income income;
     char choice;
 
-
+    system("cls");
     cout<<"--- DODAJ PRZYCHOD ---"<<endl;
     cout<<"Czy przychod dotyczy dnia dzisiejszego? Wybierz t (tak), n (nie):"<<endl;
 
@@ -136,8 +137,8 @@ float IncomeManager::getBalanceFromPeriod(int firstDate, int lastDate)
             }
         }
 
-        cout<<endl<<"-------- SUMA PRZYCHODOW --------"<<endl<<endl;
-        cout<<sum<<endl<<endl;
+        cout<<"--------------------"<<endl;
+        cout<<"SUMA PRZYCHODOW: "<<sum<<endl<<endl;
     }
 
 
