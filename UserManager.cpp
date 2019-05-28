@@ -3,6 +3,9 @@
 
 void UserManager::userRegistration()
 {
+    system("cls");
+    cout<<"---- REJESTRACJA ----"<<endl;
+
     User user = giveNewUserData();
 
     users.push_back(user);
@@ -89,6 +92,10 @@ void UserManager::listAllUsers()
 
 void UserManager::userLogin()
 {
+
+    system("cls");
+    cout<<"---- LOGOWANIE ----"<<endl;
+
     User user;
     string login = "", password = "";
 
@@ -127,6 +134,10 @@ void UserManager::userLogin()
 
 void UserManager::changeCurrentUserPassword()
 {
+
+    system("cls");
+    cout<<"---- ZMIANA HASLA ----"<<endl;
+
     string newPassword = "";
     cout << "Podaj nowe haslo: ";
     cin >> newPassword;

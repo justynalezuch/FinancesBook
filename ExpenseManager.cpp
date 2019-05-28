@@ -11,27 +11,15 @@ int ExpenseManager::getNewExpenseId()
 
 void ExpenseManager::addExpense()
 {
+    system("cls");
+    cout<<"---- DODAJ WYDATEK ----"<<endl;
+
     Expense expense = giveNewExpenseData();
 
     expenses.push_back(expense);
     fileWithExpenses.addExpenseToFile(expense);
 
     cout << endl << "Dodales wydatek." << endl << endl;
-    system("pause");
-}
-
-void ExpenseManager::listAllExpenses()
-{
-    for(int i = 0; i <expenses.size(); i++)
-    {
-        cout<<expenses[i].getId() << endl;
-        cout<<expenses[i].getUserId() << endl;
-        cout<<expenses[i].getDate() << endl;
-        cout<<expenses[i].getItem() << endl;
-        cout<<expenses[i].getAmount() << endl;
-        cout<<endl;
-    }
-
     system("pause");
 }
 
@@ -42,6 +30,7 @@ Expense ExpenseManager::giveNewExpenseData()
     Expense expense;
     char choice;
 
+    system("cls");
     cout<<"--- DODAJ WYDATEK ---"<<endl;
     cout<<"Czy wydatek dotyczy dnia dzisiejszego? Wybierz t (tak), n (nie):"<<endl;
 
@@ -137,8 +126,8 @@ float ExpenseManager::getBalanceFromPeriod(int firstDate, int lastDate)
             }
         }
 
-        cout<<"-------- SUMA WYDATKOW --------"<<endl<<endl;
-        cout<<sum<<endl<<endl;
+        cout<<"--------------------"<<endl;
+        cout<<"SUMA WYDATKOW: "<<sum<<endl<<endl;
     }
 
 

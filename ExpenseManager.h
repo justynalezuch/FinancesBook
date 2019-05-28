@@ -39,7 +39,6 @@ public:
 
     Expense giveNewExpenseData();
     void addExpense();
-    void listAllExpenses();
     float getBalanceFromPeriod(int firstDate, int lastDate);
 
 
